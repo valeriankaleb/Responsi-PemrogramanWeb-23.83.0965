@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block judul %} Ubah Data Mahasiswa {% endblock %}
+
+{% block JudulKonten %}
+    <a href="/" class="btn btn-warning btn-lg"> Kembali </a>
+{% endblock %}
+
+{% block Konten %}
+<section>
+    <div class="container py-5">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-lg-8 col-xl-6">
+                <div class="card rounded-3">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Ubah Data Mahasiswa</h3>
+                        <form action="{{url_for('proses_ubah')}}" method="POST">
+                            {% for row in hasil %}
+                                <div class="form-group mt-3">
+                                    <label>No Induk Mahasiswa</label>
+                                    <input type="hidden" name="nim_ori" value="{{ row.0 }}">
+                                    <input type="text" name="nim" class="form-control" placeholder="nim" value="{{row.0}}">
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label>Nama Lengkap</label>
+                                    <input type="text" name="nama" class="form-control" placeholder="nama" value="{{row.1}}">
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label>Asal</label>
+                                    <input type="text" name="asal" class="form-control" placeholder="kota asal" value="{{row.2}}">
+                                </div>
+                            {% endfor %}
+                        
+                            <div class="box-footer mt-3 mb-5">
+                                <button type="reset" class="btn btn-default"> Cancel </button>
+                                <button type="submit" class="btn btn-primary pull-right"> Submit </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

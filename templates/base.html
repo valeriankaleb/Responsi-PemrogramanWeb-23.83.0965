@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- title area -->
+    <title> Halaman {% block judul %} {% endblock %}</title>
+
+    <!-- CSS area -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/AdminLTE.css') }}">
+
+    <!-- CSS font area-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='font/sansPro.css') }}">
+
+    <style>
+        /* Custom Style */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            box-shadow: 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: bold; 
+            font-size: 1.5rem;
+        }
+
+        .hero-section {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            padding: 6rem 1rem;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-section .btn {
+            font-size: 1.2rem;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero-section .btn:hover {
+            background-color: #0d6efd;
+            color: white;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #6a11cb;
+        }
+
+        .about-section p,
+        .contact-section p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+        
+        .contact-section {
+            background: #f8f9fa;
+            padding: 4rem 1rem;
+        }
+
+        .footer{
+            background-color: #343a40;
+            color: white;
+            padding: 1.5rem 1rem;
+        }
+
+        .footer .social-icons a {
+            margin: 0 10px;
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer .social-icons a:hover {
+            color: #0d6efd;
+        }
+    </style>
+</head>
+
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container">
+        <a class="navbar-brand" href="#">Responsi Pemrograman Web</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Valerian Kaleb Setiawirawan</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">23TK01</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">23.83.0965</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- content area -->
+    <div class="content-wrapper">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <h1>
+                <a href="/">
+                    <img src="{{ url_for('static', filename='img/amikom_logo.png') }}">
+                </a>
+                Data Mahasiswa
+                <small>Teknik Komputer</small>
+            </h1>
+        </div>
+
+        <section class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header mt-2 text-center">
+                            {% block JudulKonten %} {% endblock %}
+                        </div>
+
+                        <!-- data table (database) area -->
+                        <div class="box-body mt-2">
+                            {% block Konten %} {% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+        <p>&copy; 2025 Modern Landing Page. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="#" arial-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" arial-label="Twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" arial-label="Instagram"><i class="bi bi-instagram"></i></a>
+        </div>
+    </footer>
+
+<!-- Javascript area -->
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/adminlte.min.js') }}"></script>
+
+</body>
+
+</html>
