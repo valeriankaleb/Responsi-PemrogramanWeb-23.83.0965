@@ -2,14 +2,17 @@ from flask import Flask
 from flask import render_template
 from flask import request, redirect, url_for
 from mysql import connector
+import mysql.connector
+from mysql.connector import Error
 
 app = Flask(__name__)
 
 db = connector.connect(
-    host    = 'localhost',
-    user    = 'root',
-    passwd  = '',
-    database= 'db_kuliah_0965'
+    host = "r77at.h.filess.io",
+    database = "dbkuliah0965_impossible",
+    port = "3307",
+    user = "dbkuliah0965_impossible",
+    password = "edb82a415186170afa6207e88f7f34e81589f0ca"
 )
 
 if db.is_connected():
